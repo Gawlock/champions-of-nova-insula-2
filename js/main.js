@@ -6,6 +6,7 @@ import { characters } from './characters.js';
 import { weapons } from './weapons.js';
 import { upgrades } from './upgrades.js';
 import { showCharacterSelection, setupEventListeners } from './utils.js';
+import { initGameLoop } from './game.js';
 
 // Carrega todos os assets e inicia o jogo
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,4 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Aqui você pode criar loops de animação e importar as demais lógicas depois
+// Função chamada ao iniciar o jogo
+export function startGame() {
+    const canvas = document.getElementById('gameCanvas');
+    initGameLoop(canvas);
+}
