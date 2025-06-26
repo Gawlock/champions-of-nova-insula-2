@@ -6,10 +6,10 @@ import { initGameLoop } from './game.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('gameCanvas');
-    canvas.width = 1500;
-    canvas.height = 900;
+    canvas.width = 1280;
+    canvas.height = 720;
 
-       assetLoader.loadAll(() => {
+    assetLoader.loadAll(() => {
         showCharacterSelection(selectCharacter);
         setupEventListeners();
     });
