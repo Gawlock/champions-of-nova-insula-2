@@ -6,7 +6,6 @@ import { initGameLoop } from './game.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('gameCanvas');
-    function resizeCanvas() {
     canvas.width = 1500;
     canvas.height = 900;
 
