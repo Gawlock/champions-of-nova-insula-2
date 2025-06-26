@@ -40,6 +40,8 @@ export let player = {
     originalProjectileRadius: 0,
     originalEnemySpeed: 0,
     originalBasicProjectileDamage: 0,
+    attackFunction: null,
+    baseAttackInterval: 1000
 };
 
 export function initPlayer(selectedCharacter, mapWidth, mapHeight, assetLoader) {
@@ -51,7 +53,7 @@ export function initPlayer(selectedCharacter, mapWidth, mapHeight, assetLoader) 
     player.maxHealth = selectedCharacter.startingHealth;
     player.damageMultiplier = 1.0;
     player.collectionRadiusMultiplier = 1.0;
-    player.baseProjectileDamage = 5;
+    player.baseProjectileDamage = selectedCharacter.baseProjectileDamage || 5;
     player.projectileCountMultiplier = 1;
     player.basicAttackLevel = selectedCharacter.id !== 'teste' ? 1 : 0;
     player.activeWeapons = [];
@@ -68,6 +70,9 @@ export function initPlayer(selectedCharacter, mapWidth, mapHeight, assetLoader) 
     player.lastHeroicChargeTime = 0;
     player.isHeroicAbilityActive = false;
     player.heroicAbilityEndTime = 0;
+
+    player.baseAttackInterval = selectedCharacter.baseAttackInterval || 1000;
+    player.attackFunction = selectedCharacter.attackFunction;
 
     if (selectedCharacter.spriteSheetUrl) {
         player.spriteSheet = assetLoader.getImage(`${selectedCharacter.id}_sheet`);
