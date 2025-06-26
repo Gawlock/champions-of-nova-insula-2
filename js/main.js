@@ -10,13 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Chame a função uma vez na inicialização
-resizeCanvas();
-
-// Adicione um ouvinte de evento para redimensionar o canvas quando a janela mudar de tamanho
-window.addEventListener('resize', resizeCanvas);    
-
-    assetLoader.loadAll(() => {
+       assetLoader.loadAll(() => {
         showCharacterSelection(selectCharacter);
         setupEventListeners();
     });
