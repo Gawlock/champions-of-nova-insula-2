@@ -1,16 +1,18 @@
-import { initPlayer, player } from './player.js';
-import { initCharacters, characters } from './characters.js';
-import { initWeapons, weapons } from './weapons.js';
-import { upgrades } from './upgrades.js';
+// Arquivo principal do jogo
+
 import { assetLoader } from './assets.js';
+import { initPlayer, player } from './player.js';
+import { characters } from './characters.js';
+import { weapons } from './weapons.js';
+import { upgrades } from './upgrades.js';
 import { showCharacterSelection, setupEventListeners } from './utils.js';
 
-// Inicializa os assets e o jogo
-window.onload = () => {
+// Carrega todos os assets e inicia o jogo
+document.addEventListener('DOMContentLoaded', () => {
     assetLoader.loadAll(() => {
         showCharacterSelection();
         setupEventListeners();
     });
-};
+});
 
-// Você pode importar e organizar as funções de inicialização e loops aqui também.
+// Aqui você pode criar loops de animação e importar as demais lógicas depois
