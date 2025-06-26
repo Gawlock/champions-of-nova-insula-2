@@ -7,8 +7,8 @@ import { initGameLoop } from './game.js';
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('gameCanvas');
     function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = 1800;
+    canvas.height = 900;
 
        assetLoader.loadAll(() => {
         showCharacterSelection(selectCharacter);
