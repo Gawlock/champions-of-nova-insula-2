@@ -94,3 +94,58 @@ canvas {
     font-size: 2.5em;
     line-height: 1;
 }
+
+#upgrade-selection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#upgrade-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.upgrade-card {
+    background-color: #444;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #555;
+}
+
+.upgrade-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 255, 0, 0.3);
+    border-color: limegreen;
+}
+
+.upgrade-card h3 {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.upgrade-card p {
+    font-size: 0.8em;
+    color: #ccc;
+}
+
+.upgrade-icon {
+    font-size: 2.5em;
+    line-height: 1;
+}
