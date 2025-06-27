@@ -1,6 +1,7 @@
 import { player } from './player.js';
 import { updateAttack, updateProjectiles, drawProjectiles } from './attack_system.js';
 import { updateEnemies, drawEnemies, checkCollisions } from './enemy_system.js';
+import { isGamePaused } from './upgrade_system.js';
 
 let keys = { w: false, a: false, s: false, d: false };
 let canvas = null;
@@ -28,10 +29,13 @@ function setupMovementListeners() {
 }
 
 function gameLoop(timestamp) {
-    update(timestamp);
-    draw();
+    if (!isGamePaused()) {
+        update(timestamp);
+        draw();
+    }
     requestAnimationFrame(gameLoop);
 }
+
 
 function update(timestamp) {
     const speed = player.speed;
