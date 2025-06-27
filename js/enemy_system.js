@@ -56,3 +56,8 @@ export function checkCollisions() {
 
     enemies = enemies.filter((enemy) => !enemy.toRemove);
 }
+
+export function getEnemies() {
+    return enemies;
+}
+
