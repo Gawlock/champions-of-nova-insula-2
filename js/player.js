@@ -8,10 +8,8 @@ export let player = {
     maxHealth: 100,
     damageMultiplier: 1.0,
     baseAttackInterval: 1000,
-    attackFunction: null
-    
-        activeWeapons: []
-    
+    attackFunction: null,
+    activeWeapons: []
 };
 
 export function initPlayer(selectedCharacter, mapWidth, mapHeight, assetLoader) {
