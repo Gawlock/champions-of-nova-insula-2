@@ -9,6 +9,9 @@ export let player = {
     damageMultiplier: 1.0,
     baseAttackInterval: 1000,
     attackFunction: null
+    
+        activeWeapons: []
+    
 };
 
 export function initPlayer(selectedCharacter, mapWidth, mapHeight, assetLoader) {
