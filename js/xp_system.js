@@ -1,3 +1,5 @@
+import { showUpgradeSelection } from './upgrade_system.js';
+
 let xp = 0;
 let level = 1;
 let xpToNextLevel = 100;
@@ -17,6 +19,7 @@ function levelUp() {
     xpToNextLevel = Math.floor(xpToNextLevel * 1.2);
     updateXpDisplay();
     console.log('Level Up! Nível: ' + level);
+    showUpgradeSelection();
 }
 
 function updateXpDisplay() {
