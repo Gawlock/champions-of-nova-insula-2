@@ -2,6 +2,10 @@ import { player } from './player.js';
 import { updateAttack, updateProjectiles, drawProjectiles } from './attack_system.js';
 import { updateEnemies, drawEnemies, checkCollisions } from './enemy_system.js';
 import { isGamePaused } from './upgrade_system.js';
+import { updateActiveWeapons } from './weapon_system.js';
+import { getEnemies } from './enemy_system.js';
+import { getProjectiles } from './attack_system.js';
+
 
 let keys = { w: false, a: false, s: false, d: false };
 let canvas = null;
