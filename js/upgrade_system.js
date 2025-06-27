@@ -2,15 +2,6 @@ import { upgrades } from './upgrades.js';
 import { player } from './player.js';
 import { addWeapon } from './weapon_system.js';
 
-card.addEventListener('click', () => {
-    if (upgrade.type === 'weapon') {
-        addWeapon(upgrade.id);
-    } else {
-        upgrade.apply(player);
-    }
-    hideUpgradeSelection();
-});
-
 let isPaused = false;
 
 export function showUpgradeSelection() {
@@ -44,8 +35,13 @@ export function showUpgradeSelection() {
         card.appendChild(name);
         card.appendChild(desc);
 
+        // ✅ Aqui está a correção: adicionar o event listener no contexto correto
         card.addEventListener('click', () => {
-            upgrade.apply(player);
+            if (upgrade.type === 'weapon') {
+                addWeapon(upgrade.id);
+            } else {
+                upgrade.apply(player);
+            }
             hideUpgradeSelection();
         });
 
