@@ -52,6 +52,7 @@ function update(timestamp) {
     updateProjectiles(canvas);
     updateEnemies(timestamp, canvas);
     checkCollisions();
+    updateActiveWeapons(timestamp, getEnemies(), getProjectiles());
 }
 
 function draw() {
