@@ -1,0 +1,164 @@
+/* Estilos básicos para centralizar o jogo e definir o fundo */
+body {
+    margin: 0;
+    overflow: hidden; /* Esconde barras de rolagem */
+    background-color: #222; /* Fundo escuro para a página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif; /* Usando a fonte Inter */
+    color: #eee; /* Cor clara para o texto */
+}
+
+/* Estilos para o canvas da área de jogo */
+canvas {
+    background-color: #333; /* Fundo escuro levemente mais claro para a área de jogo */
+    border: 5px solid #555; /* Borda ao redor do canvas */
+    border-radius: 10px; /* Cantos arredondados */
+    display: block; /* Garante que o canvas seja um elemento de bloco */
+    touch-action: none; /* Previne ações de toque padrão como rolagem/zoom */
+}
+
+/* Exibição de informações do jogo (pontuação, nível, XP) */
+#game-info {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    display: flex;
+    gap: 30px; /* Espaçamento entre os elementos de informação */
+    z-index: 900; /* Garante que esteja acima do canvas, mas abaixo dos modais */
+}
+
+/* Estilos para todas as caixas de mensagem/modais */
+#message-box, #character-selection, #upgrade-selection, #weapon-selection, #initial-weapon-selection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza a caixa */
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo mais opaco */
+    padding: 15px;
+    border-radius: 15px; /* Cantos arredondados */
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+    display: none; /* Escondido por padrão */
+    z-index: 1000; /* Garante que esteja no topo de tudo */
+    max-width: 95%; /* Largura responsiva */
+    max-height: 85vh; /* Altura responsiva */
+    overflow-y: auto; /* Rolagem para conteúdo longo */
+    box-sizing: border-box; /* Inclui padding no cálculo de largura/altura */
+}
+
+/* Títulos dentro das caixas de seleção */
+#character-selection h2, #upgrade-selection h2, #weapon-selection h2, #initial-weapon-selection h2 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Layout de grade para listas de personagens, upgrades e armas */
+#character-list, #upgrade-list, #weapon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Colunas de grade responsivas */
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Grade específica para seleção de arma inicial */
+#initial-weapon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Estilos para cartões individuais nos menus de seleção */
+.character-card, .upgrade-card {
+    background-color: #444; /* Fundo mais escuro para cartões */
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efeitos de hover suaves */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #555;
+}
+
+/* Efeitos de hover para cartões de personagem */
+.character-card:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+    box-shadow: 0 8px 15px rgba(0, 255, 255, 0.3); /* Sombra ciano */
+    border-color: deepskyblue; /* Borda ciano */
+}
+
+/* Efeitos de hover para cartões de upgrade/arma */
+.upgrade-card:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+    box-shadow: 0 8px 15px rgba(0, 255, 0, 0.3); /* Sombra verde */
+    border-color: limegreen; /* Borda verde */
+}
+
+/* Títulos dentro dos cartões */
+.character-card h3, .upgrade-card h3 {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+/* Parágrafos dentro dos cartões */
+.character-card p, .upgrade-card p {
+    font-size: 0.8em;
+    color: #ccc;
+}
+
+/* Ícones para personagens e upgrades */
+.char-icon, .upgrade-icon {
+    font-size: 2.5em;
+    line-height: 1; /* Alinha o ícone verticalmente */
+}
+
+/* Estilo específico para título e parágrafo da caixa de mensagem */
+#message-box h2 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 2em;
+}
+
+#message-box p {
+    font-size: 1.1em;
+    color: #ccc;
+}
+
+/* Estilos para todos os botões */
+#message-box button, #character-selection button, #upgrade-selection button, #weapon-selection button, #initial-weapon-selection button {
+    background-color: #4CAF50; /* Fundo verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transições suaves */
+    box-shadow: 0 4px #2e7d32; /* Sombra do botão */
+}
+
+/* Efeito de hover do botão */
+#message-box button:hover, #character-selection button:hover, #upgrade-selection button:hover, #weapon-selection button:hover, #initial-weapon-selection button:hover {
+    background-color: #45a049; /* Verde mais escuro no hover */
+    transform: translateY(-2px); /* Leve elevação */
+}
+
+/* Efeito de clique do botão */
+#message-box button:active, #character-selection button:active, #upgrade-selection button:active, #weapon-selection button:active, #initial-weapon-selection button:active {
+    transform: translateY(2px); /* Efeito de "pressionar" */
+    box-shadow: 0 2px #2e7d32; /* Sombra menor ao pressionar */
+}
